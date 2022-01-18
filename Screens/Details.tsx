@@ -2,13 +2,18 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 interface Props {
-    
+   route: {
+        params: {
+            name: string;
+        };
+      }; 
 }
 
-const Detais = (props: Props) => {
+const Detais = ({route}:Props) => {
     return (
         <View style={styles.container}>
             <Text>Details</Text>
+            <Text>{route.params.name}</Text>
         </View>
     )
 }
