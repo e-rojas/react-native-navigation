@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { View, Text, Button } from "react-native";
@@ -6,12 +5,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./Screens/Home";
 import Detais from "./Screens/Details";
 
-
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export type RootStackParamList = {
   Home: undefined;
-  Details: {name: string};
+  Details: { name: string };
 };
 
 const App: React.FC<RootStackParamList> = () => {

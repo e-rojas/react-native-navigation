@@ -1,30 +1,29 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 interface Props {
-   route: {
-        params: {
-            name: string;
-        };
-      }; 
+  route: {
+    params: {
+      name: string;
+    };
+  };
 }
 
-const Detais = ({route}:Props) => {
-    return (
-        <View style={styles.container}>
-            <Text>Details</Text>
-            <Text>{route.params.name}</Text>
-        </View>
-    )
-}
+const Detais = ({ route }: Props) => {
+  return (
+    <View style={[styles.container, { backgroundColor: route.params.name }]}>
+      <Text>Details</Text>
+      <Text>{route.params.name}</Text>
+    </View>
+  );
+};
 
-export default Detais
+export default Detais;
 
 const styles = StyleSheet.create({
-      container: {
+  container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
-})
+});
