@@ -6,13 +6,15 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
-
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { RgtActions } from "./ListButtonActions";
 interface Props {
   color: string;
   handlePress: () => void;
 }
 
 const ListButton = ({ color, handlePress }: Props) => {
+  const swipeableRef: any = React.useRef(null);
   return (
     <TouchableHighlight
       activeOpacity={0.6}
@@ -20,10 +22,16 @@ const ListButton = ({ color, handlePress }: Props) => {
       style={[styles.button]}
       onPress={() => handlePress()}
     >
+      <Swipeable
+        ref={swipeableRef}
+        renderRightActions={RgtActions}
+        
+      >
       <View style={styles.row}>
         <View style={[styles.sample, { backgroundColor: color }]}></View>
         <Text style={styles.text}>{color}</Text>
       </View>
+      </Swipeable>
     </TouchableHighlight>
   );
 };
@@ -55,5 +63,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
+    marginBottom: 10,
+    marginTop: 10,
   },
 });

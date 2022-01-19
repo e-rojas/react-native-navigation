@@ -6,6 +6,7 @@ Basic React Native Navigation project using TS, React, Expo and React Native Nav
 $ npm install @react-navigation/native-stack
 $ npm install react-navigation-stack @react-native-community/masked-view react-native-safe-area-context
 $ npm i @react-navigation/native-stack
+$ expo install react-native-gesture-handler
 ```
 
 ![](project-1.gif)
