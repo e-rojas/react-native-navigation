@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, StyleSheet, TextInput, View } from "react-native";
 
 interface Props {
   addColor: (color: string) => void;

@@ -1,19 +1,20 @@
 import React from "react";
 import {
-  Pressable,
   StyleSheet,
   Text,
   TouchableHighlight,
   View,
 } from "react-native";
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { RgtActions } from "./ListButtonActions";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+import RgtActions from "./ListButtonActions";
 interface Props {
   color: string;
   handlePress: () => void;
+  deleteColor: (id: number) => void;
+  item: { id: number; color: string };
 }
 
-const ListButton = ({ color, handlePress }: Props) => {
+const ListButton = ({ color, handlePress, item, deleteColor }: Props) => {
   const swipeableRef: any = React.useRef(null);
   return (
     <TouchableHighlight
@@ -24,13 +25,12 @@ const ListButton = ({ color, handlePress }: Props) => {
     >
       <Swipeable
         ref={swipeableRef}
-        renderRightActions={RgtActions}
-        
+        renderRightActions={() => RgtActions(deleteColor, item)}
       >
-      <View style={styles.row}>
-        <View style={[styles.sample, { backgroundColor: color }]}></View>
-        <Text style={styles.text}>{color}</Text>
-      </View>
+        <View style={styles.row}>
+          <View style={[styles.sample, { backgroundColor: color }]}></View>
+          <Text style={styles.text}>{color}</Text>
+        </View>
       </Swipeable>
     </TouchableHighlight>
   );

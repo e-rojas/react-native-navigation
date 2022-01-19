@@ -1,34 +1,29 @@
 import React from "react";
 import {
-  Pressable,
   StyleSheet,
-  Text,
   TouchableHighlight,
-  View,
 } from "react-native";
 import TabIcon from "./TabIcon";
-export const RgtActions = (
-  progress: any,
-  dragX: {
-    interpolate: (arg0: { inputRange: number[]; outputRange: number[] }) => any;
-  }
+
+const RgtActions = (
+  deleteColor: { (id: number): void; (arg0: any): void },
+  item: { id: number; color?: string }
 ) => {
-  const scale = dragX.interpolate({
-    inputRange: [-100, 0],
-    outputRange: [1, 0],
-  });
   return (
     <TouchableHighlight
       activeOpacity={0.6}
       underlayColor="#6D8299"
-      onPress={() => {}}
+      onPress={() => {
+        deleteColor(item.id);
+      }}
       style={styles.rightAction}
     >
       <TabIcon name="trash" color="#fff" />
-      {/* <Text style={styles.actionText}>Delete</Text> */}
     </TouchableHighlight>
   );
 };
+
+export default RgtActions;
 
 const styles = StyleSheet.create({
   actionText: {
@@ -44,8 +39,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: 80,
-    backgroundColor:'orange',
+    backgroundColor: "orange",
     borderRadius: 5,
- 
   },
 });

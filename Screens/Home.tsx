@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View,FlatList } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../App";
 import ListButton from "../components/ListButton";
@@ -23,6 +23,9 @@ const Home = ({ navigation }: Props) => {
     ]);
     setColor("");
   };
+  const deleteColor = (id: number) => {
+    setData(data.filter((item) => item.id !== id));
+  };
   function handlePress(color: string) {
     navigation.navigate("Details", { name: color });
   }
@@ -36,7 +39,9 @@ const Home = ({ navigation }: Props) => {
         renderItem={({ item }) => (
           <ListButton
             color={item.color}
+            item={item}
             handlePress={() => handlePress(item.color)}
+            deleteColor={deleteColor}
           />
         )}
       ></FlatList>
