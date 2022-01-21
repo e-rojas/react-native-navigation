@@ -16,8 +16,7 @@ const ColorSlider = ({rgbValue,setRGBValue,rgbType}: Props) => {
         style={{ width: 250, height: 40 }}
         minimumValue={0}
         maximumValue={255}
-        value={rgbValue}
-        step={1}
+        step={3}
         onValueChange={(value) => setRGBValue(value)}
         minimumTrackTintColor="#FFFFFF"
         maximumTrackTintColor="#000000"
