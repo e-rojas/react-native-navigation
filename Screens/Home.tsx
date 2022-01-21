@@ -4,6 +4,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../App";
 import ListButton from "../components/ListButton";
 import ColorForm from "../components/ColorForm";
+import ColorSliders from "../components/ColorSliders";
 type AboutScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   "Home"
@@ -32,6 +33,7 @@ const Home = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
       <ColorForm addColor={addColor} color={color} setColor={setColor} />
+      <ColorSliders addColor={addColor} />
       <FlatList
         style={{ width: "100%" }}
         data={data}
